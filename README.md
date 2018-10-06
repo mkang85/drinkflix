@@ -21,4 +21,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...checking to see if this works. 
+* ...checking to see if this works. Chcking onc emore
