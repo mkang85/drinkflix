@@ -21,4 +21,8 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...checking to see if this works. Chcking onc emore
+I want users to be able to attach a drink with a film they are reviewing.
+create a drink
+see all their drinks
+update their drinks
+delete their drinks
