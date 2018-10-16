@@ -9,7 +9,8 @@ resources :books do
   resources :ratings
 end
 
-root 'users#index'
+root 'welcome#home'
 
 get '/auth/facebook/callback' => 'sessions#create'
+
 end
