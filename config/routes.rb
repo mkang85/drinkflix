@@ -4,7 +4,7 @@ resources :users
 resources :films
 resources :drinks
 
-resources :books do
+resources :films do
   resources :reviews
   resources :ratings
 end

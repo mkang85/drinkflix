@@ -1,12 +1,18 @@
 class UsersController < ApplicationController
   def index
+    binding.pry
+    @users = User.all
   end
 
   def create
     @user = User.create(user_params)
-    redirect_to new_user_path unless @user.save
-    session[:user_id] = @user.id
-    redirect_to controller: 'welcome', action: 'home'
+      return redirect_to controller: 'users', action: 'new' unless @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+  end
+
+  def show
+    @user = User.find(session[:user_id])
   end
 
 
