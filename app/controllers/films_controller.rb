@@ -1,4 +1,7 @@
 class FilmsController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:index]
+
   def index
     @films = Film.all
   end
@@ -17,16 +20,25 @@ class FilmsController < ApplicationController
   end
 
   def show
+    @film = Film.find(params[:id])
   end
 
   def edit
+  @film = Film.find(params[:id])
   end
 
-  def destroy
-  end 
+def update
+  @film = Film.find(params[:id])
+  @film.update(film_params)
+  redirect_to film_path(@film)
+end
 
   private
   def film_params
     params.require(:film).permit(:title)
+  end
+
+  def require_login
+    return head(:forbidden) unless session.include? :user_id
   end
 end

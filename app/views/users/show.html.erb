@@ -1,7 +1,7 @@
 <h1>Welcome <%=@user.username%></h1>
 
 Here's a list of films you have reviewed:
-<% @user.films%>
+<%=link_to "Films", films_path%> 
 
 Here's a bunch of drinks you've drank:
 #(have links to the drinks that were created for the films)
