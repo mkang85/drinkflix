@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   def index
-    binding.pry
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+  
   def create
     @user = User.create(user_params)
       return redirect_to controller: 'users', action: 'new' unless @user.save
