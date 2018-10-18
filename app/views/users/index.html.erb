@@ -1,3 +1,5 @@
-<%@users.each do |t|%>
-<%= link_to "#{t.username}", user_path(t)  %>
-<%end%> 
+<ul>
+  <%@users.each do |t|%>
+  <li><%= link_to "#{t.username}", user_path(t)  %></li>
+  <%end%>
+</ul>
