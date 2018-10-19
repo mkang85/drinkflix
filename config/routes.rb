@@ -9,6 +9,11 @@ resources :films do
   resources :ratings
 end
 
+resources :users do
+  resources :reviews
+  resources :ratings
+end 
+
 root 'welcome#home'
 
 get '/auth/facebook/callback' => 'sessions#create'
