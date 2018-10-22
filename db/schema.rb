@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_10_134014) do
+ActiveRecord::Schema.define(version: 2018_10_22_235450) do
 
   create_table "drinks", force: :cascade do |t|
     t.integer "user_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2018_10_10_134014) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["film_id"], name: "index_reviews_on_film_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

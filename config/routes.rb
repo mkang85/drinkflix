@@ -12,7 +12,7 @@ end
 resources :users do
   resources :reviews
   resources :ratings
-end 
+end
 
 root 'welcome#home'
 

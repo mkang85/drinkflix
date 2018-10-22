@@ -1,0 +1,9 @@
+<h1>New Review for <%=@film.title%></h1>
+
+<%=form_for [@film, @review] do |f|%>
+<%=f.label :content%>
+<%=f.text_field :content%>
+<%=f.hidden_field :film_id%>
+<%=f.hidden_field :user_id%>
+<%=f.submit "Submit"%>
+<%end%>
