@@ -32,7 +32,22 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @film = Film.find(params[:film_id])
     @review = Review.find(params[:id])
+  end
+
+  def edit
+    if params[:film_id]
+        @film = Film.find_by(id: params[:film_id])
+        if @film.nil?
+          redirect_to films_path, alert: "Film not found."
+        else
+          @review = @film.reviews.find_by(id: params[:id])
+          redirect_to film_reviews_path(@film), alert: "Review not found." if @review.nil?
+        end
+      else
+        @review = Post.find(params[:id])
+      end
   end
 
 
