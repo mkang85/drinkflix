@@ -2,4 +2,4 @@
 
 <%=button_to "Edit Film", edit_film_path(@film), :method => :get %><br   />
 
-<%=button_to "Film Reviews", film_reviews_path(@film)%>
+<%=link_to "Film Reviews", new_film_review_path(@film)%>

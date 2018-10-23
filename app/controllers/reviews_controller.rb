@@ -22,23 +22,22 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
+    @film = Film.find(params[:film_id])
     @review = Review.create(review_params)
     if @review.save
-    redirect_to film_reviews_path(@review)
+    redirect_to film_reviews_path
     else
       redirect_to new_film_review_path
     end
   end
 
   def show
-    binding.pry
     @review = Review.find(params[:id])
   end
 
 
   private
    def review_params
-     params.require(:review).permit(:content, :film_id, :user_id)
+     params.require(:review).permit(:content, :title, :film_id, :user_id)
    end
 end
