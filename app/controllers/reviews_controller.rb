@@ -46,10 +46,18 @@ class ReviewsController < ApplicationController
           redirect_to film_reviews_path(@film), alert: "Review not found." if @review.nil?
         end
       else
-        @review = Post.find(params[:id])
+        @review = Review.find(params[:id])
       end
   end
 
+def update
+  @review = Review.find(params[:id])
+  if @review.update(review_params)
+    redirect_to film_review_path
+  else
+    render 'edit'
+  end
+end
 
   private
    def review_params
