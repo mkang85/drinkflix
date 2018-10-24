@@ -1,7 +1,14 @@
 <h1>Welcome <%=@user.username%></h1>
 
 Here's a list of films you have reviewed: <br  />
-<%=link_to "Films", films_path%> <br  />
+
+
+<p>Films:</p>
+<% @user.reviews.each do |review| %>
+  <div><%=link_to "#{review.title}", film_review_path(review) %></div>
+<% end %><br      />
+
+<%=link_to "List of all Films", films_path%> <br  />
 
 Here's a bunch of drinks you've drank:
 #(have links to the drinks that were created for the films)

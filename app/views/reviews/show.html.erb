@@ -4,4 +4,8 @@
 
 <%=@review.content%><br   />
 
-<%=link_to "Edit Review", edit_film_review_path(@review.film, @review)%>
+<%=link_to "Edit Review", edit_film_review_path(@review.film, @review)%><br  />
+
+<%=link_to "Reviews", film_reviews_path%><br  />
+
+<%=link_to "Profile", user_path(@review.user)%>

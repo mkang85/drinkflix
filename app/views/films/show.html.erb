@@ -2,4 +2,10 @@
 
 <%=button_to "Edit Film", edit_film_path(@film), :method => :get %><br   />
 
-<%=link_to "Film Reviews", new_film_review_path(@film)%>
+
+<p>Reviews:</p>
+<% @film.reviews.each do |review| %>
+  <div><%=link_to "#{review.title}", film_review_path(review) %></div>
+<% end %>
+
+<%=link_to "New Film Review", new_film_review_path(@film)%>
