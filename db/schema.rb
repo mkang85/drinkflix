@@ -13,14 +13,10 @@
 ActiveRecord::Schema.define(version: 2018_10_10_134014) do
 
   create_table "drinks", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "film_id"
-    t.string "type_of_drink"
+    t.string "type"
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["film_id"], name: "index_drinks_on_film_id"
-    t.index ["user_id"], name: "index_drinks_on_user_id"
   end
 
   create_table "films", force: :cascade do |t|
@@ -32,11 +28,13 @@ ActiveRecord::Schema.define(version: 2018_10_10_134014) do
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
     t.integer "film_id"
+    t.integer "drink_id"
     t.string "title"
     t.string "content"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["drink_id"], name: "index_reviews_on_drink_id"
     t.index ["film_id"], name: "index_reviews_on_film_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

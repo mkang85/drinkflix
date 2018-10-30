@@ -20,7 +20,6 @@ class FilmsController < ApplicationController
   end
 
   def show
-
     @film = Film.find(params[:id])
   end
 
@@ -36,7 +35,7 @@ end
 
   private
   def film_params
-    params.require(:film).permit(:title, drinks_attributes: [:type_of_drink, :amount])
+    params.require(:film).permit(:title)
   end
 
   def require_login

@@ -1,4 +1,3 @@
 class Drink < ApplicationRecord
-  belongs_to :users
-  belongs_to :films
+  has_many :reviews
 end

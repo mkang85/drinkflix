@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :film
+  belongs_to :drink
 
   validates :content, presence: true
   validates :rating, presence: true
