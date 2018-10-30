@@ -1,5 +1,15 @@
+<h1>Edit Film:</h1>
 <%=form_for @film do |f|%>
-<%= f.label :title %>
-<%= f.text_field :title%>
+<label>Film Title:</label>
+<%= f.text_field :title%><br   />
+
+<h3>What does it go best with:</h3>
+<%= f.fields_for :drinks, @film.drinks.build do |drinks_fields|%>
+  <%=f.label :amount%>
+  <%=drinks_fields.text_field :amount%><br  />
+  <%=f.label :type_of_drink%>
+  <%=drinks_fields.text_field :type_of_drink %>
+<%end%><br  />
+
 <%=f.submit%>
 <%end%>

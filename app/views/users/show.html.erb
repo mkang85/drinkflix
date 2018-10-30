@@ -4,8 +4,8 @@ Here's a list of films you have reviewed: <br  />
 
 
 <p>Films:</p>
-<% @user.reviews.each do |review| %>
-  <div><%=link_to "#{review.title}", film_review_path(review) %></div>
+<% @user.films.each do |film| %>
+  <div><%=link_to "#{film.title}", film_review_path(review) %></div>
 <% end %><br      />
 
 <%=link_to "List of all Films", films_path%> <br  />

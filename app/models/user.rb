@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  has_many :ratings
   has_many :reviews
-  has_many :drinks
-  has_many :films, through: :drinks
+  has_many :films, through: :reviews
+  has_many :drinks, through: :films
 
   validates :username, presence: true
   validates :username, uniqueness: true

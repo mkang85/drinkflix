@@ -2,6 +2,10 @@
 
 <%=button_to "Edit Film", edit_film_path(@film), :method => :get %><br   />
 
+<p>Drinks:</p>
+<%@film.drinks.each do |drink|%>
+<div><%=drink.type_of_drink%></div>
+<%end%>
 
 <p>Reviews:</p>
 <% @film.reviews.each do |review| %>
