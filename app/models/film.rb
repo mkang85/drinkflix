@@ -1,7 +1,7 @@
 class Film < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews
-  has_many :drinks, through: :users
+  has_many :drinks, through: :reviews 
 
   accepts_nested_attributes_for :drinks
 
