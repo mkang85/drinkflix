@@ -2,15 +2,27 @@
 
 <%=form_for [@film, @review] do |f|%>
 <%=f.label :title%>
-<%=f.text_field :title%><br  />
+<%=f.text_field :title%><br  /><br />
 
-<%=f.label :rating%>
-<%=f.text_field :rating%><br  />
-
-<%=f.label :content%>
+<%=f.label :content%><br />
 <%=f.text_area :content%><br  />
 
 <%=f.hidden_field :film_id%>
-<%=f.hidden_field :user_id%>
+<%=f.hidden_field :user_id%><br />
+<!--
+At this point, it might be better to think of an alternative.
+
+Is this the best way to create a drink, and associate it with a view and a film?
+
+<%= "What pairs best with this film?"%><br />
+<%= f.fields_for :drinks, @film.drinks.build do |drinks_fields|%>
+  <%=f.label :name%>
+  <%=drinks_fields.text_field :name %><br  />
+  <%=f.label :amount%>
+  <%=drinks_fields.text_field :amount%>
+<%end%><br />
 <%=f.submit "Submit"%>
+
+-->
+
 <%end%>

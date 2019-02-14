@@ -6,7 +6,6 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.belongs_to :drink
       t.string :title
       t.string :content
-      t.integer :rating
       t.timestamps
     end
   end

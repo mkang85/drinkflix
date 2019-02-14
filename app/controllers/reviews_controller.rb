@@ -22,8 +22,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    binding.pry
     @film = Film.find(params[:film_id])
     @review = Review.create(review_params)
+    @drink = Drink.create(params[:review][:drinks])
     if @review.save
     redirect_to film_reviews_path
     else
@@ -61,6 +63,6 @@ end
 
   private
    def review_params
-     params.require(:review).permit(:content, :title, :rating, :film_id, :user_id)
+     params.require(:review).permit(:content, :title, :film_id, :user_id, :drinks)
    end
 end

@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2018_10_10_134014) do
     t.integer "drink_id"
     t.string "title"
     t.string "content"
-    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["drink_id"], name: "index_reviews_on_drink_id"
