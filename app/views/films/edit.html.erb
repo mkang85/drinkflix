@@ -2,14 +2,5 @@
 <%=form_for @film do |f|%>
 <label>Film Title:</label>
 <%= f.text_field :title%><br   />
-
-<h3>What does it go best with:</h3>
-<%= f.fields_for :drinks, @film.drinks.build do |drinks_fields|%>
-  <%=f.label :amount%>
-  <%=drinks_fields.text_field :amount%><br  />
-  <%=f.label :name%>
-  <%=drinks_fields.text_field :name %>
-<%end%><br  />
-
 <%=f.submit%>
 <%end%>
