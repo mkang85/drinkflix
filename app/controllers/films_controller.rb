@@ -1,3 +1,4 @@
+require 'pry'
 class FilmsController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:index]
@@ -37,6 +38,9 @@ end
   def film_params
     params.require(:film).permit(:title)
   end
+
+
+
 
   def require_login
     return head(:forbidden) unless session.include? :user_id

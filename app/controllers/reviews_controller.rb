@@ -22,18 +22,20 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
+
     @film = Film.find(params[:film_id])
     @review = Review.create(review_params)
-    @drink = Drink.create(params[:review][:drinks])
+
     if @review.save
-    redirect_to film_reviews_path
+      binding.pry
+    redirect_to film_review_path(@film, @review)
     else
       redirect_to new_film_review_path
     end
   end
 
   def show
+    binding.pry
     @film = Film.find(params[:film_id])
     @review = Review.find(params[:id])
   end
@@ -63,6 +65,7 @@ end
 
   private
    def review_params
-     params.require(:review).permit(:content, :title, :film_id, :user_id, :drinks)
+     params.require(:review).permit(:title, :content, :film_id, :user_id, {:drink_attributes => [:name, :amount]})
    end
+
 end

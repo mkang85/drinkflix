@@ -3,7 +3,11 @@
 
 <%if @user.films.empty? %>
 <%= "Looks like you've gotta get started"%><br />
-<%= link_to "Make a New Film", new_film_path%>
+<%= link_to "Review a New Film", new_film_path%><br />
+<%= "Or Choose one to review:"%><br />
+<%@films.each do |film|%>
+<%=link_to film.title, film_path(film)%><br />
+<%end%>
   <%else %>
 <%="Here's a list of films you have reviewed:" %>
   <p>Films:</p>

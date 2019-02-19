@@ -1,4 +1,22 @@
+
 <h1>New Review for <%=@film.title%></h1>
+
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@review.errors.count, "error") %>
+      prohibited this review from being saved:
+    </h2>
+
+    <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 
 <%=form_for [@film, @review] do |f|%>
 <%=f.label :title%>
@@ -9,20 +27,14 @@
 
 <%=f.hidden_field :film_id%>
 <%=f.hidden_field :user_id%><br />
-<!--
-At this point, it might be better to think of an alternative.
 
-Is this the best way to create a drink, and associate it with a view and a film?
-
-<%= "What pairs best with this film?"%><br />
-<%= f.fields_for :drinks, @film.drinks.build do |drinks_fields|%>
+<%= f.fields_for :drink, @film.drinks.build do |drinks_fields|%>
   <%=f.label :name%>
   <%=drinks_fields.text_field :name %><br  />
   <%=f.label :amount%>
   <%=drinks_fields.text_field :amount%>
-<%end%><br />
-<%=f.submit "Submit"%>
+<%end%><br  />
 
--->
+<%=f.submit "Submit"%>
 
 <%end%>

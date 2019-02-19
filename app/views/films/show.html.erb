@@ -1,4 +1,9 @@
 <h1><%=@film.title%></h1>
 
 <%=button_to "Edit Film", edit_film_path(@film), :method => :get %><br   />
-<%=link_to "Write a Review", new_film_review_path(@film)%>
+<%=link_to "Write a Review", new_film_review_path(@film)%><br />
+
+<%="Here's some reviews:"%><br />
+<%@film.reviews.each do |review|%>
+<%= link_to review.title, review_path(review)%>
+<%end%>
