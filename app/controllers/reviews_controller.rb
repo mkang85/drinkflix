@@ -61,6 +61,12 @@ def update
   end
 end
 
+def destroy
+  @review = Review.find(params[:id])
+  @review.destroy
+  redirect_to film_reviews_path
+end
+
 
   private
    def review_params

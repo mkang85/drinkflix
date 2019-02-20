@@ -9,11 +9,12 @@
 <%=f.hidden_field :film_id%>
 <%=f.hidden_field :user_id%><br />
 
+<%= "Drinks:"%><br />
 <%= f.fields_for :drink, @film.drinks.build do |drinks_fields|%>
-  <%=f.label :name%>
-  <%=drinks_fields.text_field :name %><br  />
   <%=f.label :amount%>
   <%=drinks_fields.text_field :amount%>
+  <%=f.label :name%>
+  <%=drinks_fields.text_field :name %><br  />
 <%end%><br  />
 
 <%=f.submit "Submit"%>
