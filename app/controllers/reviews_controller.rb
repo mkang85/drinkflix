@@ -27,7 +27,6 @@ class ReviewsController < ApplicationController
     @review = Review.create(review_params)
 
     if @review.save
-      binding.pry
     redirect_to film_review_path(@film, @review)
     else
       redirect_to new_film_review_path
@@ -35,7 +34,6 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    binding.pry
     @film = Film.find(params[:film_id])
     @review = Review.find(params[:id])
   end
