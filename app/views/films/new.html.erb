@@ -1,8 +1,2 @@
 <h1>Create a new film:</h1>
-<%=form_for @film do |f|%>
-<%=f.label :title%>
-<%= f.text_field :title%><br /><br />
-
-
-<%=f.submit%>
-<%end%>
+<%= render 'form' %>

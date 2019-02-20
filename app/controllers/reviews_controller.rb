@@ -61,6 +61,7 @@ def update
   end
 end
 
+
   private
    def review_params
      params.require(:review).permit(:title, :content, :film_id, :user_id, {:drink_attributes => [:name, :amount]})

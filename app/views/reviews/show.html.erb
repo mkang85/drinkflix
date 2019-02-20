@@ -4,6 +4,8 @@
 
 <%=@review.content%><br   />
 
+<%=@review.drink.amount%> <%=@review.drink.name%><br /><br />
+
 <%=link_to "Edit Review", edit_film_review_path(@review.film, @review)%><br  />
 
 <%=link_to "Reviews", film_reviews_path%><br  />

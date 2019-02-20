@@ -1,14 +1,3 @@
 <h1>Edit Review for <%=@film.title%></h1>
 
-<%=form_for [@film, @review] do |f|%>
-<%=f.label :title%>
-<%=f.text_field :title%><br  />
-
-<%=f.label :content%>
-<%=f.text_area :content%><br  />
-
-
-<%=f.hidden_field :film_id%>
-<%=f.hidden_field :user_id%>
-<%=f.submit "Submit"%>
-<%end%>
+<%=render 'form'%>
