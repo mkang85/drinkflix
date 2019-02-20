@@ -4,15 +4,7 @@
 
 <%=@review.content%><br   />
 
-  <%if @review.drink.amount == 1 && @review.drink.name.last != "s"%>
-    <%=@review.drink.amount%> <%=@review.drink.name%>
-  <%elsif @review.drink.amount == 1 && @review.drink.name.last == "s"%>
-    <%=@review.drink.amount%> <%=@review.drink.name[0..-2]%>
-    <%elsif @review.drink.amount > 1 && @review.drink.name.last != "s"%>
-    <%=@review.drink.amount%> <%= @review.drink.name + "s"%>
-    <%else%>
-    <%=@review.drink.amount%> <%=@review.drink.name%>
-  <%end%>
+<%=drink_amount_name(@review)%>
 
 <%=button_to "Edit Review", edit_film_review_path(@review.film, @review), :method => :get %><br  />
 
