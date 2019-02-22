@@ -1,4 +1,6 @@
-<%= form_for @user, url: login_path, method: :post do |f| %>
+<h1>Welcome To Drinkflix</h1>
+<h2>Log In:</h2><br />
+<%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -6,5 +8,5 @@
   <%= f.password_field :password %>
 
   <%= f.submit "log in" %>
-  Or <%= link_to(controller: 'users', action: 'new') { 'sign up' } %>
 <% end %>
+<p>New User? <%=link_to "Signup Now", new_user_path%></p>

@@ -22,10 +22,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-
     @film = Film.find(params[:film_id])
     @review = Review.create(review_params)
-
     if @review.save
     redirect_to film_review_path(@film, @review)
     else
