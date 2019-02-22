@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:index, :edit, :update]
+  before_action :current_user, only: [:edit, :update]
+
   def index
     @users = User.all
   end
@@ -28,7 +31,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    binding.pry
+    @user = User.find(params[:id])
     @films = Film.all
   end
 
@@ -37,4 +41,14 @@ private
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
+
+
+      def require_login
+        return head(:forbidden) unless session.include? :user_id
+      end
+
+      def correct_user
+        @user = User.find(params[:id])
+        redirect_to(root_url) unless @user == current_user
+      end
 end
