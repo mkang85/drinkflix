@@ -2,18 +2,19 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def create
-    user = User.find_by(name: params[:user][:username])
-    user = user.try(:authenticate, params[:user][:password])
-    return redirect_to sessions_new_path unless user
-    session[:user_id] = user.id
-    @user = user
-    redirect_to controller: 'welcome', action: 'home'
+def create
+
+    user = User.find_by(username: params[:session][:username].downcase)
+    if user && user.authenticate(params[:session][:password])
+      log_in user
+      redirect_to user
+    else
+      redirect_to new_user_path
+    end
   end
 
   def destroy
     session.delete :user_id
-
     redirect_to '/'
   end
 end

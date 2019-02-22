@@ -1,12 +1,12 @@
 <h1>Welcome To Drinkflix</h1>
 <h2>Log In:</h2><br />
 <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
 
   <%= f.label :password %>
   <%= f.password_field :password %>
 
   <%= f.submit "log in" %>
 <% end %>
-<p>New User? <%=link_to "Signup Now", new_user_path%></p>
+<p>New User? <%=link_to "Signup Now", '/'%></p>
