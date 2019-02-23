@@ -12,6 +12,7 @@ accepts_nested_attributes_for :drink
     end
   end
 
+  validates :title, presence: true
   validates :content, presence: true
   validates :user_id, presence: true
   validates :film_id, presence: true

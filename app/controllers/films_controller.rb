@@ -16,7 +16,7 @@ class FilmsController < ApplicationController
     if @film.save
       redirect_to film_path(@film)
     else
-      render 'new'
+      render :new
     end
   end
 

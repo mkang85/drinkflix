@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to @user
     else
-      render new_user_path
+      render :new
     end
   end
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    binding.pry
+
     @user = User.find(params[:id])
     @films = Film.all
   end
