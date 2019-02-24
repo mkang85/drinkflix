@@ -1,0 +1,11 @@
+<h1><%=@film.title%></h1>
+
+<h3><%=@review.title%></h3><br    />
+
+<%=@review.content%><br   />
+
+<%=drink_amount_name(@review)%><br />
+
+<%=link_to "More Reviews for #{@film.title}", film_reviews_path%><br  />
+
+<%=link_to "Profile", user_path(@review.user)%>

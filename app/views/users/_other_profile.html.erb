@@ -1,0 +1,14 @@
+<h1><%= @user.username%></h1>
+
+
+
+  <%if @user.films.empty? %>
+    <%= "This user has not submitted any reviews..."%><br />
+  <%else %>
+<%="Here's a list of films #{@user.username} has reviewed:" %>
+  <% @user.films.each do |film| %>
+      <%film.reviews.each do |review|%>
+    <div><%=link_to "#{review.film.title}", film_review_path(review.film, review) %></div>
+      <%end%>
+    <%end%><br      />
+  <%end%>

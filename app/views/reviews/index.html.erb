@@ -2,7 +2,7 @@
 
 <ul>
 <%@reviews.each do |r|%>
-<li><%=link_to "#{r.title}", film_review_path(@film, r)%></li>
+<li><%=link_to "#{r.title}", film_review_path(@film, r)%> - <%=link_to r.user.username, user_path(r.user)%></li>
 <%end%>
 </ul>
 

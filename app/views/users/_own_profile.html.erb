@@ -1,0 +1,20 @@
+<h1><%= "Welcome Back #{@user.username}"%></h1>
+
+
+
+  <%if @user.films.empty? %>
+    <%= "Looks like you've gotta get started"%><br />
+    <%= link_to "Review a New Film", new_film_path%><br />
+    <%= "Or Choose one to review:"%><br />
+    <%@films.each do |film|%>
+    <%=link_to film.title, film_path(film)%><br />
+  <%end%>
+  <%else %>
+<%="Here's a list of films you have reviewed:" %>
+  <% @user.films.each do |film| %>
+      <%film.reviews.each do |review|%>
+    <div><%=link_to "#{review.film.title}", film_review_path(review.film, review) %></div>
+      <%end%>
+    <%end%><br      />
+    <%=link_to "Write a new Review", new_film_path%>
+  <%end%>

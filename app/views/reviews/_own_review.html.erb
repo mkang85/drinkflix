@@ -1,0 +1,15 @@
+<h1><%=@film.title%></h1>
+
+<h3><%=@review.title%></h3><br    />
+
+<%=@review.content%><br   />
+
+<%=drink_amount_name(@review)%>
+
+<%=button_to "Edit Review", edit_film_review_path(@review.film, @review), :method => :get %><br  />
+
+<%=button_to "Delete Review", film_review_path(@review.film, @review), :method => "delete", :class => "destroy"%><br /><br /><br />
+
+<%=link_to "More Reviews for #{@film.title}", film_reviews_path%><br  />
+
+<%=link_to "Profile", user_path(@review.user)%>
