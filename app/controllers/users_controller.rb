@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    binding.pry
     @user = User.find(params[:id])
     @films = Film.all
   end

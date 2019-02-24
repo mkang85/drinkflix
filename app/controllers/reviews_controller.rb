@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     # else
     #   @reviews = Review.where(:user_id, params[:user_id])
     # end
+    binding.pry
     @film = Film.find(params[:film_id])
     @reviews = Review.where(film_id: params[:film_id])
   end
@@ -22,6 +23,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    binding.pry
     @film = Film.find(params[:film_id])
     @review = Review.create(review_params)
     if @review.save
