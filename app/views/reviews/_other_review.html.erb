@@ -2,9 +2,9 @@
 
 <h3><%=@review.title%></h3><br    />
 
-<%=@review.content%><br   />
+<%=@review.content%><br   /><br />
 
-<%=drink_amount_name(@review)%><br />
+<%=link_to drink_amount_name(@review), film_drink_path(@film)%><br />
 
 <%=link_to "More Reviews for #{@film.title}", film_reviews_path%><br  />
 

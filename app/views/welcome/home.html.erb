@@ -1,10 +1,10 @@
 <h1>Welcome to DrinkFlix!</h1>
 <p>A site dedicated to pairing drinks with films</p>
 
-<% if @user %>
-  <h2><%= @user.username %></h2>
+<% if logged_in? %>
+  <%="Welcome Back!! Have you seen any good movies lately?"%><br />
+  <%=link_to "Why not write a review?", new_film_path%>
 <% else %>
   <%= link_to('Log in with Facebook!', '/auth/facebook') %><br />
+  <%= link_to "Sign Up", new_user_path%>
 <% end %>
-
-<%= link_to "Sign Up", new_user_path%>
