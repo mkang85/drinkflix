@@ -10,4 +10,16 @@ module DrinksHelper
       "#{@review.drink.amount}" + " #{@review.drink.name}"
     end
   end
+
+  def drink_display(drink)
+    if drink.amount == 1 && drink.name.last != "s"
+      "#{drink.amount}" + " #{drink.name}"
+    elsif drink.amount == 1 && drink.name.last == "s"
+      "#{drink.amount}" + " #{drink.name[0..-2]}"
+    elsif drink.amount > 1 && drink.name.last != "s"
+      "#{drink.amount}" + " #{drink.name}" + "s"
+      else
+      "#{drink.amount}" + " #{drink.name}"
+    end
+  end
 end

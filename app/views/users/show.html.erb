@@ -1,6 +1,6 @@
 
   <%if @user.id == session[:user_id]%>
-  <%= render 'own_profile'%>
+    <%= render 'own_profile'%>
   <%else%>
-<%=render 'other_profile'%>
-<%end%>
+    <%=render 'other_profile'%>
+  <%end%>

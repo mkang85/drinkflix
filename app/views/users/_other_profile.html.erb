@@ -8,7 +8,9 @@
 <%="Here's a list of films #{@user.username} has reviewed:" %>
   <% @user.films.each do |film| %>
       <%film.reviews.each do |review|%>
-    <div><%=link_to "#{review.film.title}", film_review_path(review.film, review) %></div>
+      <%if @user.id == review.user.id%>
+    <div><%=link_to "#{review.film.title} - #{review.title}" , film_review_path(review.film, review)%></div>
+        <%end%>
       <%end%>
     <%end%><br      />
   <%end%>

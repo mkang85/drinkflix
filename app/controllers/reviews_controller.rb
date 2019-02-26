@@ -1,18 +1,6 @@
 require 'pry'
 class ReviewsController < ApplicationController
   def index
-    #do I want the reviews index to control what I'm seeing under the films?
-    #I think with both films and users pointing to this index, I would need to
-    #create a conditional, if there is a params[:film_id], then we should render
-    #all the reviews associated with a film.
-    #however, if we are greeted with a params[:user_id], then we should render
-    # all the reviews associated with a user.
-    # if params[:film_id]
-    # @reviews = Review.where(:film_id, params[:film_id])
-    # else
-    #   @reviews = Review.where(:user_id, params[:user_id])
-    # end
-    binding.pry
     @film = Film.find(params[:film_id])
     @reviews = Review.where(film_id: params[:film_id])
   end
@@ -23,7 +11,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
     @film = Film.find(params[:film_id])
     @review = Review.create(review_params)
     if @review.save
@@ -42,11 +29,12 @@ class ReviewsController < ApplicationController
     if params[:film_id]
         @film = Film.find_by(id: params[:film_id])
         if @film.nil?
-          redirect_to films_path, alert: "Film not found."
+          redirect_to films_path
         else
           @review = @film.reviews.find_by(id: params[:id])
-          redirect_to film_reviews_path(@film), alert: "Review not found." if @review.nil?
+          redirect_to film_reviews_path(@film), if @review.nil?
         end
+      end 
       else
         @review = Review.find(params[:id])
       end

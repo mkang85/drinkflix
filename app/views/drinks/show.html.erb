@@ -1,0 +1,7 @@
+<h1><%=drink_display(@drink)%></h1>
+
+<p>Movies associated:</p>
+<ul><%@drink.films.each do |film|%>
+<li><%=link_to film.title, film_path(film)%></li>
+<%end%><br />
+</ul>

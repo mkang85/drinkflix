@@ -14,14 +14,11 @@
   <% @user.films.each do |film| %>
       <%film.reviews.each do |review|%>
     <div>
-      <% if @user.id == review[:user_id]%>
-      <%=link_to "#{review.film.title}", film_review_path(review.film, review)%>
+        <% if @user.id == review[:user_id]%>
+          <%=link_to "#{review.film.title} - #{review.title}", film_review_path(review.film, review)%>
     </div>
-      <%else%>
-      <%binding.pry%>
-      <%="No Reviews"%>
-        <%end%>
       <%end%>
-    <%end%><br      />
+    <%end%>
+  <%end%><br      />
     <%=link_to "Write a new Review", new_film_path%>
   <%end%>

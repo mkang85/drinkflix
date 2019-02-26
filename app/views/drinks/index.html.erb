@@ -1,0 +1,22 @@
+<h1>Here's what people are drinking:</h1>
+
+
+<h2>Boozy:</h2>
+<ul>
+<%Drink.boozy.each do |d|%>
+  <%d.films.each do |film| %>
+  <li><%=link_to "#{film.title} - " "#{drink_display(d)}", film_path(film)%></li>
+  <%end%>
+<%end%>
+</ul>
+<br /><br />
+
+<h2>Tipsy:</h2>
+<ul>
+<%Drink.tipsy.each do |d|%>
+  <%d.films.each do |film| %>
+  <li><%=link_to "#{film.title} - " "#{drink_display(d)}", film_path(film)%></li>
+  <%end%>
+<%end%>
+</ul>
+<br /><br />

@@ -12,6 +12,7 @@ class FilmsController < ApplicationController
   end
 
   def create
+    binding.pry
     @film = Film.create(film_params)
     if @film.save
       redirect_to film_path(@film)

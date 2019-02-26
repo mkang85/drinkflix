@@ -6,5 +6,5 @@
 
 <%="Here's some reviews:"%><br />
 <%@film.reviews.each do |review|%>
-<%= link_to review.title, film_review_path(review)%>
+<%= link_to review.title, film_review_path(review)%><br />
 <%end%>

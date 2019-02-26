@@ -1,6 +1,6 @@
 
   <%if @review[:user_id] == session[:user_id]%>
-  <%= render 'own_review'%>
+    <%= render 'own_review'%>
   <%else%>
-<%=render 'other_review'%>
-<%end%>
+    <%=render 'other_review'%>
+  <%end%>

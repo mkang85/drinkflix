@@ -4,7 +4,7 @@
 
 <%=@review.content%><br   />
 
-<%=drink_amount_name(@review)%>
+<%=link_to drink_amount_name(@review), film_drink_path(@film)%>
 
 <%=button_to "Edit Review", edit_film_review_path(@review.film, @review), :method => :get %><br  />
 
