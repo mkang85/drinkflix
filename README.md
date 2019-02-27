@@ -26,3 +26,9 @@ create a drink
 see all their drinks
 update their drinks
 delete their drinks
+
+
+#add in the "uid" in the sessions controller (read the omniauth section again)
+#code the model scope method for search 
+#create a readme file
+#instead of accessing both instance variable s- just use their inherent realtionships. some refactored spots.

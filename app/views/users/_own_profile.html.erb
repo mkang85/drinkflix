@@ -11,7 +11,7 @@
   <%end%>
   <%else %>
 <%="Here's a list of films you have reviewed:" %>
-  <% @user.films.each do |film| %>
+  <% @user.films.uniq.each do |film| %>
       <%film.reviews.each do |review|%>
     <div>
         <% if @user.id == review[:user_id]%>

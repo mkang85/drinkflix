@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   def index
     @film = Film.find(params[:film_id])
     @reviews = Review.where(film_id: params[:film_id])
+    @reviews = @film.reviews
   end
 
   def new
@@ -34,7 +35,7 @@ class ReviewsController < ApplicationController
           @review = @film.reviews.find_by(id: params[:id])
           redirect_to film_reviews_path(@film), if @review.nil?
         end
-      end 
+      end
       else
         @review = Review.find(params[:id])
       end
