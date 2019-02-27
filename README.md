@@ -29,6 +29,7 @@ delete their drinks
 
 
 #add in the "uid" in the sessions controller (read the omniauth section again)
-#code the model scope method for search 
+#code the model scope method for search
 #create a readme file
 #instead of accessing both instance variable s- just use their inherent realtionships. some refactored spots.
+#for the user's show page, need to go over the join tables, this was showing 4 reviews instead of the two that you created for Aladdin, this is dependent on our join tables and the models.  this is the has many thru relationship.
